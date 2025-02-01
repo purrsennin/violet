@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Violet Evergarden</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #333; /* Warna latar belakang gelap */
+            font-family: Arial, sans-serif;
+            margin: 0; /* Menghilangkan margin default */
+        }
+        h1 {
+            margin-bottom: 10px; /* Menambah jarak bawah judul */
+            font-size: 28px; /* Ukuran font judul lebih besar */
+            color: white; /* Warna font judul menjadi putih */
+            text-align: center;
+            position: relative;
+            top: -10px; /* Menggeser judul sedikit ke atas */
+        }
+        #image {
+            width: 90%; /* Menggunakan persentase untuk responsivitas */
+            max-width: 500px; /* Ukuran maksimum untuk gambar */
+            height: auto; /* Tinggi otomatis untuk menjaga rasio aspek */
+            object-fit: cover;
+            border-radius: 20px; /* Membuat sudut gambar lebih bulat */
+            border: 5px solid transparent; /* Border awal transparan dan lebih tipis */
+            animation: borderAnimation 2s linear infinite; /* Animasi border */
+            transition: opacity 0.5s ease; /* Transisi untuk opacity */
+        }
+        .fade {
+            opacity: 0; /* Mengatur opacity menjadi 0 untuk efek fade */
+        }
+        p {
+            margin-top: 10px;
+            font-size: 16px; /* Ukuran font deskripsi diperkecil */
+            color: white; /* Warna font deskripsi menjadi putih */
+            text-align: center;
+            padding: 0 20px; /* Menambahkan padding untuk tampilan lebih baik di perangkat kecil */
+            opacity: 0; /* Memulai dengan opacity 0 untuk animasi */
+            animation: fadeIn 4s forwards; /* Animasi muncul */
+            max-height: 128px; /* Membatasi tinggi maksimum untuk deskripsi */
+            overflow: hidden; /* Menyembunyikan teks yang tidak terlihat */
+        }
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                max-height: 0; /* Memulai dengan tinggi 0 */
+            }
+            100% {
+                opacity: 1; /* Menampilkan teks */
+                max-height: 130px; /* Tinggi maksimum untuk deskripsi */
+            }
+        }
+        @keyframes borderAnimation {
+            0% {
+                border-color: white; /* Warna putih */
+            }
+            50% {
+                border-color: gray; /* Warna abu-abu */
+            }
+            100% {
+                border-color: white; /* Kembali ke warna putih */
+            }
+        }
+        .social-section {
+            margin-top: 20px; /* Mengurangi jarak atas untuk bagian social */
+            text-align: center;
+            color: white;
+        }
+        .social-section h2 {
+            font-size: 16px; /* Ukuran font judul lebih kecil */
+            margin: 5px 0; /* Jarak atas dan bawah judul */
+        }
+        .social-buttons {
+            display: flex; /* Mengatur tombol media sosial sejajar */
+            justify-content: center; /* Menyusun tombol di tengah */
+            margin-top: 10px;
+        }
+        .social-button {
+            margin: 0 10px;
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+        .social-button img {
+            width: 20px;
+            height: 20px;
+        }
+        .separator {
+            width: 100%;
+            height: 2px;
+            background-color: white;
+            margin: 10px 0; /* Mengurangi jarak atas dan bawah pemisah */
+        }
+        .license {
+            margin-top: 10px; /* Mengurangi jarak atas untuk lisensi */
+            font-size: 12px; /* Ukuran font lisensi diperkecil */
+            color: white; /* Warna font lisensi */
+            text-align: center;
+            padding: 0 20px; /* Menambahkan padding untuk tampilan lebih baik */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Violet Evergarden</h1> <!-- Judul di atas gambar -->
+    <img id="image" src="https://g.top4top.io/p_3319cx7gw1.jpg" alt="Gambar" /> <!-- G ambar ditampilkan langsung -->
+    <p>Violet Evergarden adalah karakter yang sangat setia. Dia berdedikasi dan selalu mendahulukan kepentingan orang lain. Kesetiaannya terutama terlihat dalam hubungannya dengan Mayor Sennh, yang dia hormati dan cintai sepenuh hati. Selain itu, Violet selalu berusaha memahami dan membantu orang lain dengan tulus.</p> <!-- Deskripsi di bawah gambar -->
+
+    <div class="separator"></div> <!-- Pemisah antara bagian deskripsi dan media sosial -->
+
+    <div class="social-section">
+        <h2>Hubungi</h2> <!-- Judul untuk bagian media sosial -->
+        <div class="social-buttons">
+            <a href="https://www.instagram.com/sennhndra" class="social-button" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+            </a>
+            <a href="https://wa.me/6283841951316" class="social-button" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
+            </a>
+            <a href="https://www.facebook.com/share/181t2tbBcF/" class="social-button" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
+            </a>
+            <a href="https://github.com/TanakaDomp" class="social-button" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub">
+            </a>
+        </div>
+    </div>
+
+    <div class="license">
+        <p>© 2025 Sennhndra. Semua hak dilindungi. Karya ini dikembangkan dengan dukungan vercel.app</p>
+    </div>
+
+    <script>
+        const images = [
+            "https://g.top4top.io/p_3319cx7gw1.jpg",
+            "https://l.top4top.io/p_3213jnss01.jpg",
+            "https://d.top4top.io/p_33191in1c1.jpg",
+            "https://l.top4top.io/p_33192o19z1.jpg",
+            "https://f.top4top.io/p_33194noa91.jpg",
+            "https://l.top4top.io/p_3319t0jek1.jpg",
+            "https://j.top4top.io/p_3213yg2e11.jpg"
+        ];
+
+        let currentIndex = 0;
+
+        // Menampilkan gambar pertama saat halaman dimuat
+        document.addEventListener('DOMContentLoaded', () => {
+            const imgElement = document.getElementById('image');
+            imgElement.src = images[currentIndex];
+            // Memulai animasi deskripsi setelah gambar dimuat
+            const descriptionElement = document.querySelector('p');
+            descriptionElement.style.animation = 'fadeIn 4s forwards';
+
+            // Mengganti gambar setiap 5 detik
+            setInterval(() => {
+                imgElement.classList.add('fade');
+
+                setTimeout(() => {
+                    currentIndex = (currentIndex + 1) % images.length;
+                    imgElement.src = images[currentIndex];
+                    imgElement.classList.remove('fade');
+                }, 500); // Waktu yang sama dengan durasi transisi
+            }, 5000); // Ganti gambar setiap 5 detik
+        });
+    </script>
+
+</body>
+</html>
