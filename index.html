@@ -11,75 +11,75 @@
             align-items: center;
             justify-content: center;
             height: 100vh;
-            background-color: #333; /* Warna latar belakang gelap */
+            background-color: #333; 
             font-family: Arial, sans-serif;
-            margin: 0; /* Menghilangkan margin default */
+            margin: 0;
         }
         h1 {
-            margin-bottom: 10px; /* Menambah jarak bawah judul */
-            font-size: 28px; /* Ukuran font judul lebih besar */
-            color: white; /* Warna font judul menjadi putih */
+            margin-bottom: 10px; 
+            font-size: 28px;
+            color: white; 
             text-align: center;
             position: relative;
-            top: -10px; /* Menggeser judul sedikit ke atas */
+            top: -10px; 
         }
         #image {
-            width: 90%; /* Menggunakan persentase untuk responsivitas */
-            max-width: 500px; /* Ukuran maksimum untuk gambar */
-            height: auto; /* Tinggi otomatis untuk menjaga rasio aspek */
+            width: 90%; 
+            max-width: 500px; 
+            height: auto; 
             object-fit: cover;
-            border-radius: 20px; /* Membuat sudut gambar lebih bulat */
-            border: 5px solid transparent; /* Border awal transparan dan lebih tipis */
-            animation: borderAnimation 2s linear infinite; /* Animasi border */
-            transition: opacity 0.5s ease; /* Transisi untuk opacity */
+            border-radius: 20px; 
+            border: 5px solid transparent; 
+            animation: borderAnimation 2s linear infinite; 
+            transition: opacity 0.5s ease; 
         }
         .fade {
-            opacity: 0; /* Mengatur opacity menjadi 0 untuk efek fade */
+            opacity: 0; 
         }
         p {
             margin-top: 10px;
-            font-size: 16px; /* Ukuran font deskripsi diperkecil */
-            color: white; /* Warna font deskripsi menjadi putih */
+            font-size: 16px; 
+            color: white; 
             text-align: center;
-            padding: 0 20px; /* Menambahkan padding untuk tampilan lebih baik di perangkat kecil */
-            opacity: 0; /* Memulai dengan opacity 0 untuk animasi */
-            animation: fadeIn 4s forwards; /* Animasi muncul */
-            max-height: 128px; /* Membatasi tinggi maksimum untuk deskripsi */
-            overflow: hidden; /* Menyembunyikan teks yang tidak terlihat */
+            padding: 0 20px; 
+            opacity: 0; 
+            animation: fadeIn 4s forwards; 
+            max-height: 128px; 
+            overflow: hidden; 
         }
         @keyframes fadeIn {
             0% {
                 opacity: 0;
-                max-height: 0; /* Memulai dengan tinggi 0 */
+                max-height: 0; 
             }
             100% {
-                opacity: 1; /* Menampilkan teks */
-                max-height: 130px; /* Tinggi maksimum untuk deskripsi */
+                opacity: 1; 
+                max-height: 130px; 
             }
         }
         @keyframes borderAnimation {
             0% {
-                border-color: white; /* Warna putih */
+                border-color: white; 
             }
             50% {
-                border-color: gray; /* Warna abu-abu */
+                border-color: gray; 
             }
             100% {
-                border-color: white; /* Kembali ke warna putih */
+                border-color: white; 
             }
         }
         .social-section {
-            margin-top: 20px; /* Mengurangi jarak atas untuk bagian social */
+            margin-top: 20px; 
             text-align: center;
             color: white;
         }
         .social-section h2 {
-            font-size: 16px; /* Ukuran font judul lebih kecil */
-            margin: 5px 0; /* Jarak atas dan bawah judul */
+            font-size: 16px; 
+            margin: 5px 0; 
         }
         .social-buttons {
-            display: flex; /* Mengatur tombol media sosial sejajar */
-            justify-content: center; /* Menyusun tombol di tengah */
+            display: flex; 
+            justify-content: center; 
             margin-top: 10px;
         }
         .social-button {
@@ -102,20 +102,20 @@
             width: 100%;
             height: 2px;
             background-color: white;
-            margin: 10px 0; /* Mengurangi jarak atas dan bawah pemisah */
+            margin: 10px 0; 
         }
         .license {
-            margin-top: 10px; /* Mengurangi jarak atas untuk lisensi */
-            font-size: 12px; /* Ukuran font lisensi diperkecil */
-            color: white; /* Warna font lisensi */
+            margin-top: 10px; 
+            font-size: 12px; 
+            color: white; 
             text-align: center;
-            padding: 0 20px; /* Menambahkan padding untuk tampilan lebih baik */
+            padding: 0 20px; 
         }
     </style>
 </head>
 <body>
 
-    <h1>Violet Evergarden</h1> <!-- Judul di atas gambar -->
+    <h1>Violet Evergarden</h1> 
     <img id="image" src="https://g.top4top.io/p_3319cx7gw1.jpg" alt="Gambar" /> <!-- G ambar ditampilkan langsung -->
     <p>Violet Evergarden adalah karakter yang sangat setia. Dia berdedikasi dan selalu mendahulukan kepentingan orang lain. Kesetiaannya terutama terlihat dalam hubungannya dengan Mayor Sennh, yang dia hormati dan cintai sepenuh hati. Selain itu, Violet selalu berusaha memahami dan membantu orang lain dengan tulus.</p> <!-- Deskripsi di bawah gambar -->
 
