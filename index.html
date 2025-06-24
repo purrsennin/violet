@@ -2,180 +2,474 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Violet Evergarden</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Violet Evergarden | Tribute</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
+        :root {
+            --primary: #8a2be2;
+            --secondary: #9932cc;
+            --accent: #ba55d3;
+            --dark: #1a1a2e;
+            --light: #f8f9fa;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            height: 100vh;
-            background-color: #333; 
-            font-family: Arial, sans-serif;
-            margin: 0;
-        }
-        h1 {
-            margin-bottom: 10px; 
-            font-size: 28px;
-            color: white; 
-            text-align: center;
-            position: relative;
-            top: -10px; 
-        }
-        #image {
-            width: 90%; 
-            max-width: 500px; 
-            height: auto; 
-            object-fit: cover;
-            border-radius: 20px; 
-            border: 5px solid transparent; 
-            animation: borderAnimation 2s linear infinite; 
-            transition: opacity 0.5s ease; 
-        }
-        .fade {
-            opacity: 0; 
-        }
-        p {
-            margin-top: 10px;
-            font-size: 16px; 
-            color: white; 
-            text-align: center;
-            padding: 0 20px; 
-            opacity: 0; 
-            animation: fadeIn 4s forwards; 
-            max-height: 128px; 
-            overflow: hidden; 
-        }
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-                max-height: 0; 
-            }
-            100% {
-                opacity: 1; 
-                max-height: 130px; 
-            }
-        }
-        @keyframes borderAnimation {
-            0% {
-                border-color: white; 
-            }
-            50% {
-                border-color: gray; 
-            }
-            100% {
-                border-color: white; 
-            }
-        }
-        .social-section {
-            margin-top: 20px; 
-            text-align: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             color: white;
+            overflow-x: hidden;
+            position: relative;
+            width: 100%;
         }
-        .social-section h2 {
-            font-size: 16px; 
-            margin: 5px 0; 
+
+        /* Floating Sakura Petals */
+        .sakura {
+            position: fixed;
+            background-color: #ffb6c1;
+            border-radius: 50% 0 50% 50%;
+            opacity: 0.7;
+            z-index: -1;
+            animation: falling linear infinite;
         }
-        .social-buttons {
-            display: flex; 
-            justify-content: center; 
-            margin-top: 10px;
+
+        @keyframes falling {
+            0% {
+                transform: translate(0, -10vh) rotate(0deg);
+            }
+            100% {
+                transform: translate(calc(var(--random-x) * 100vw), 100vh) rotate(360deg);
+            }
         }
-        .social-button {
-            margin: 0 10px;
+
+        /* Main Content */
+        .container {
+            width: 100%;
+            max-width: 800px;
+            padding: 1.5rem;
+            background: rgba(26, 26, 46, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            margin: 1rem;
+        }
+
+        h1 {
+            margin-bottom: 1.5rem;
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            background: linear-gradient(90deg, #ffb6c1, #ba55d3);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            position: relative;
             display: inline-block;
-            width: 40px;
-            height: 40px;
-            background-color: white;
+            padding: 0 1rem;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, #ba55d3, transparent);
+        }
+
+        /* Image Slider */
+        .image-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        #image {
+            width: 100%;
+            height: auto;
+            max-height: 60vh;
+            object-fit: contain;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+            border-radius: 15px;
+            border: 2px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .fade {
+            opacity: 0;
+            transform: scale(0.95);
+        }
+
+        /* Description */
+        .description {
+            margin: 1.5rem 0;
+            font-size: clamp(1rem, 3vw, 1.1rem);
+            line-height: 1.6;
+            text-align: center;
+            opacity: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 1.5s ease;
+            background: rgba(138, 43, 226, 0.1);
+            padding: 1rem;
+            border-radius: 10px;
+            border-left: 3px solid var(--accent);
+        }
+
+        .description.show {
+            opacity: 1;
+            max-height: 300px;
+        }
+
+        /* Social Section */
+        .social-section {
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .social-section h2 {
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            margin-bottom: 1rem;
+            color: #ba55d3;
+        }
+
+        .social-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .social-button {
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            text-decoration: none;
+            color: white;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
-        .social-button img {
-            width: 20px;
-            height: 20px;
-        }
-        .separator {
+
+        .social-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            height: 2px;
-            background-color: white;
-            margin: 10px 0; 
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2));
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
         }
-        .license {
-            margin-top: 10px; 
-            font-size: 12px; 
-            color: white; 
+
+        .social-button:hover::before {
+            transform: translateX(100%);
+        }
+
+        .social-button:hover {
+            transform: translateY(-5px);
+        }
+
+        .instagram { background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d); }
+        .whatsapp { background: linear-gradient(45deg, #25D366, #128C7E); }
+        .facebook { background: linear-gradient(45deg, #4267B2, #3b5998); }
+        .github { background: linear-gradient(45deg, #333, #6e5494); }
+
+        /* Footer */
+        footer {
+            margin-top: auto;
             text-align: center;
-            padding: 0 20px; 
+            font-size: clamp(0.8rem, 2.5vw, 0.9rem);
+            color: rgba(255, 255, 255, 0.7);
+            width: 100%;
+            padding: 1rem;
+            background: rgba(26, 26, 46, 0.5);
+            backdrop-filter: blur(5px);
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+        }
+
+        .vercel-badge {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .vercel-badge:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Music Player */
+        .music-player {
+            position: fixed;
+            bottom: 1rem;
+            right: 1rem;
+            z-index: 100;
+        }
+
+        .music-toggle {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            border: none;
+            outline: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .music-toggle:hover {
+            transform: scale(1.1);
+        }
+
+        .music-toggle::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3));
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .music-toggle:hover::before {
+            transform: translateX(100%);
+        }
+
+        .music-notes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .music-note {
+            position: absolute;
+            color: white;
+            opacity: 0;
+            animation: float-note 2s ease-out infinite;
+        }
+
+        @keyframes float-note {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Sakura Petals -->
+    <div id="sakura-container"></div>
 
-    <h1>Violet Evergarden</h1> 
-    <img id="image" src="https://raw.githubusercontent.com/swndyy/uploder-db/main/uploads/gambarawal.jpeg" alt="Gambar" /> <!-- G ambar ditampilkan langsung -->
-    <p>Violet Evergarden adalah karakter yang sangat setia. Dia berdedikasi dan selalu mendahulukan kepentingan orang lain. Kesetiaannya terutama terlihat dalam hubungannya dengan Mayor Senna, yang dia hormati dan cintai sepenuh hati. Selain itu, Violet selalu berusaha memahami dan membantu orang lain dengan tulus.</p> <!-- Deskripsi di bawah gambar -->
-
-    <div class="separator"></div> <!-- Pemisah antara bagian deskripsi dan media sosial -->
-
-    <div class="social-section">
-        <h2>Hubungi</h2> <!-- Judul untuk bagian media sosial -->
-        <div class="social-buttons">
-            <a href="https://www.instagram.com/sennhndra" class="social-button" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
-            </a>
-            <a href="https://wa.me/6283841951316" class="social-button" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp">
-            </a>
-            <a href="https://www.facebook.com/share/181t2tbBcF/" class="social-button" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
-            </a>
-            <a href="https://github.com/swndyy" class="social-button" target="_blank">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub">
-            </a>
+    <!-- Main Content -->
+    <div class="container">
+        <h1>Violet Evergarden</h1>
+        
+        <div class="image-container">
+            <img id="image" src="https://raw.githubusercontent.com/purrsennin/DB/main/uploads/gambarawal.jpeg" alt="Violet Evergarden">
+        </div>
+        
+        <div class="description" id="description">
+            Violet Evergarden adalah karakter yang sangat setia. Dia berdedikasi dan selalu mendahulukan kepentingan orang lain. Kesetiaannya terutama terlihat dalam hubungannya dengan Mayor Purrsennin, yang dia hormati dan cintai sepenuh hati. Selain itu, Violet selalu berusaha memahami dan membantu orang lain dengan tulus.
+        </div>
+        
+        <div class="social-section">
+            <h2>Hubungi Saya</h2>
+            <div class="social-buttons">
+                <a href="https://www.instagram.com/sennhndra" class="social-button instagram" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://wa.me/6281541177589" class="social-button whatsapp" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="https://www.facebook.com/share/181t2tbBcF/" class="social-button facebook" target="_blank">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+                <a href="https://github.com/purrsennin" class="social-button github" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+            </div>
         </div>
     </div>
 
-    <div class="license">
-        <p>© 2025 SennaNetwork. Semua hak dilindungi. Karya ini dikembangkan dengan dukungan Vercel.App</p>
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Purrsennin. Semua hak dilindungi.</p>
+        <p>Dibuat dengan <i class="fas fa-heart" style="color: #ff6b6b;"></i> untuk Violet Evergarden</p>
+        <a href="https://vercel.app" class="vercel-badge" target="_blank">
+            <i class="fas fa-rocket"></i> Dihosting oleh Vercel
+        </a>
+    </footer>
+
+    <!-- Music Player -->
+    <div class="music-player">
+        <button class="music-toggle" id="musicToggle">
+            <i class="fas fa-music"></i>
+            <div class="music-notes" id="musicNotes"></div>
+        </button>
+        <audio id="bgMusic" loop>
+            <source src="https://files.catbox.moe/se60bf.mp3" type="audio/mpeg">
+        </audio>
     </div>
 
     <script>
+        // Sakura Petals Animation
+        function createSakura() {
+            const sakuraContainer = document.getElementById('sakura-container');
+            const petalCount = 15;
+            
+            for (let i = 0; i < petalCount; i++) {
+                const sakura = document.createElement('div');
+                sakura.classList.add('sakura');
+                
+                const size = Math.random() * 15 + 5;
+                const posX = Math.random();
+                const duration = Math.random() * 10 + 5;
+                const delay = Math.random() * 5;
+                
+                sakura.style.width = `${size}px`;
+                sakura.style.height = `${size}px`;
+                sakura.style.left = `${Math.random() * 100}%`;
+                sakura.style.animationDuration = `${duration}s`;
+                sakura.style.animationDelay = `${delay}s`;
+                sakura.style.setProperty('--random-x', Math.random() * 0.5 - 0.25);
+                
+                sakuraContainer.appendChild(sakura);
+            }
+        }
+
+        // Image Slider
         const images = [
-            "https://raw.githubusercontent.com/swndyy/uploder-db/main/uploads/gambarawal.jpeg",
-            "https://raw.githubusercontent.com/swndyy/uploder-db/main/uploads/gambarkedua.jpeg",
-            "https://raw.githubusercontent.com/swndyy/uploder-db/main/uploads/gambarketiga.jpeg",
-            "https://raw.githubusercontent.com/swndyy/uploder-db/main/uploads/gambarkelima.jpeg",
+            "https://raw.githubusercontent.com/purrsennin/DB/main/uploads/gambarawal.jpeg",
+            "https://raw.githubusercontent.com/purrsennin/DB/main/uploads/gambarkedua.jpeg",
+            "https://raw.githubusercontent.com/purrsennin/DB/main/uploads/gambarketiga.jpeg",
+            "https://raw.githubusercontent.com/purrsennin/DB/main/uploads/gambarkelima.jpeg",
             "https://j.top4top.io/p_3213yg2e11.jpg",
             "https://l.top4top.io/p_3213jnss01.jpg",
-            "https://raw.githubusercontent.com/swndyy/uploder-db/main/uploads/gambarempat.jpeg"
+            "https://raw.githubusercontent.com/purrsennin/DB/main/uploads/gambarempat.jpeg"
         ];
 
         let currentIndex = 0;
+        const imgElement = document.getElementById('image');
+        const descriptionElement = document.getElementById('description');
 
-        // Menampilkan gambar pertama saat halaman dimuat
+        function changeImage() {
+            imgElement.classList.add('fade');
+            
+            setTimeout(() => {
+                currentIndex = (currentIndex + 1) % images.length;
+                imgElement.src = images[currentIndex];
+                imgElement.classList.remove('fade');
+            }, 500);
+        }
+
+        // Music Player
+        const musicToggle = document.getElementById('musicToggle');
+        const bgMusic = document.getElementById('bgMusic');
+        const musicNotes = document.getElementById('musicNotes');
+        let isPlaying = false;
+        let noteInterval;
+
+        function createMusicNote() {
+            if (!isPlaying) return;
+            
+            const note = document.createElement('div');
+            note.classList.add('music-note');
+            note.innerHTML = '<i class="fas fa-music"></i>';
+            note.style.left = `${Math.random() * 100}%`;
+            note.style.fontSize = `${Math.random() * 10 + 10}px`;
+            note.style.animationDuration = `${Math.random() * 1 + 1}s`;
+            
+            musicNotes.appendChild(note);
+            
+            setTimeout(() => {
+                note.remove();
+            }, 2000);
+        }
+
+        musicToggle.addEventListener('click', () => {
+            isPlaying = !isPlaying;
+            
+            if (isPlaying) {
+                bgMusic.play();
+                musicToggle.innerHTML = '<i class="fas fa-pause"></i><div class="music-notes" id="musicNotes"></div>';
+                noteInterval = setInterval(createMusicNote, 300);
+            } else {
+                bgMusic.pause();
+                musicToggle.innerHTML = '<i class="fas fa-music"></i><div class="music-notes" id="musicNotes"></div>';
+                clearInterval(noteInterval);
+            }
+        });
+
+        // Initialize
         document.addEventListener('DOMContentLoaded', () => {
-            const imgElement = document.getElementById('image');
-            imgElement.src = images[currentIndex];
-            // Memulai animasi deskripsi setelah gambar dimuat
-            const descriptionElement = document.querySelector('p');
-            descriptionElement.style.animation = 'fadeIn 4s forwards';
+            createSakura();
+            descriptionElement.classList.add('show');
+            setInterval(changeImage, 5000);
+            
+            bgMusic.volume = 0.3;
+            const playPromise = bgMusic.play();
+            
+            if (playPromise !== undefined) {
+                playPromise.catch(error => {
+                    isPlaying = false;
+                });
+            }
+        });
 
-            // Mengganti gambar setiap 5 detik
-            setInterval(() => {
-                imgElement.classList.add('fade');
-
-                setTimeout(() => {
-                    currentIndex = (currentIndex + 1) % images.length;
-                    imgElement.src = images[currentIndex];
-                    imgElement.classList.remove('fade');
-                }, 500); // Waktu yang sama dengan durasi transisi
-            }, 5000); // Ganti gambar setiap 5 detik
+        // Ensure proper resizing
+        window.addEventListener('resize', () => {
+            document.getElementById('sakura-container').innerHTML = '';
+            createSakura();
         });
     </script>
-
 </body>
 </html>
